@@ -1,13 +1,45 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel='stylesheet' href='styles.css'>
+    <title>TicTacToe</title>
 </head>
 
 <body>
+    <section class='player-one'>
+        <img src='./assets/ximage.png' alt='green drippy image of the letter O'>
+        <h2 class='x-wins'>0 Wins</h2>
+    </section>
+    <section class='game-table'>
+        <h1 class='turn-display'>It's X's Turn First</h1>
+        <article class='pound-sign'>
+            <div class='column-one'>
+                <div class='play-square' id='top-left'></div>
+                <div class='play-square' id='middle-left'></div>
+                <div class='play-square' id='bottom-left'></div>
+            </div>
+            <div class='column-two'>
+                <div class='play-square' id='top-middle'></div>
+                <div class='play-square' id='middle-middle'></div>
+                <div class='play-square' id='bottom-middle'></div>
+            </div>
+            <div class='column-three'>
+                <div class='play-square' id='top-right'></div>
+                <div class='play-square' id='middle-right'></div>
+                <div class='play-square' id='bottom-right'></div>
+            </div>
 
+
+        </article>
+    </section>
+    <section class='player-two'>
+        <img src='./assets/oimage.png' alt='green drippy image of the letter O'>
+        <h2 class='o-wins'>0 Wins</h2>
+    </section>
 </body>
+<script src='./player.js'></script>
+<script src='./game.js'></script>
+<script src='./main.js'></script>
 
 </html>
