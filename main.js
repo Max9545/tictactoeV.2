@@ -24,6 +24,10 @@ function takeTurnForPlayer(event) {
     } else if (returnToken === 'O') {
         event.target.innerHTML = '<img src="./assets/oimage.png" alt="green drippy image of the letter O">';
     }
+    displayWinsCounts();
+}
+
+function displayWinsCounts() {
     playerOneWins.innerText = `${newGame.playerOne.winCount} Wins`;
     playerTwoWins.innerText = `${newGame.playerTwo.winCount} Wins`;
 }
