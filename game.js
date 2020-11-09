@@ -25,6 +25,7 @@ class Game {
     checkFoWin(player) {
         if (this.checkRows() || this.checkColumns() || this.checkDiagonals()) {
             player.winCount++;
+            player.saveWinsToStorage();
             // this.resetGame();
 
         }

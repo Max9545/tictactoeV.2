@@ -17,6 +17,8 @@ var newGame = new Game();
 
 poundSign.addEventListener('click', takeTurnForPlayer);
 
+window.addEventListener('load', displayWinsCounts())
+
 function takeTurnForPlayer(event) {
     var returnToken = newGame.playTurn(event.target.id);
     if (returnToken === 'X') {
@@ -31,8 +33,10 @@ function takeTurnForPlayer(event) {
 };
 
 function displayWinsCounts() {
-    playerOneWins.innerText = `${newGame.playerOne.winCount} Wins`;
-    playerTwoWins.innerText = `${newGame.playerTwo.winCount} Wins`;
+    var oneWinCount = newGame.playerOne.retrieveWinsFromStorage();
+    var twoWinCount = newGame.playerTwo.retrieveWinsFromStorage();
+    playerOneWins.innerText = oneWinCount === null ? '0 Wins' : `${oneWinCount} Wins`;
+    playerTwoWins.innerText = twoWinCount === null ? '0 Wins' : `${twoWinCount} Wins`;
 };
 
 function upDateTurnStatus(symbol) {

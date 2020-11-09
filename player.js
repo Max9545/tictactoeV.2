@@ -7,9 +7,12 @@ class Player {
         this.wins = [];
     }
     saveWinsToStorage() {
-
+        var stringedWinsCount = JSON.stringify(this.winCount);
+        localStorage.setItem(`${this.name}`, stringedWinsCount);
     }
     retrieveWinsFromStorage() {
-
+        var retrievedWinCount = localStorage.getItem(`${this.name}`);
+        this.winCount = JSON.parse(retrievedWinCount);
+        return this.winCount;
     }
 }
