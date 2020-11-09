@@ -44,6 +44,8 @@ function displayOctothorpeStatus(symbolToLookFor) {
 
         } else if (newGame.gameBoard[i] === 'O') {
             event.target.innerHTML = '<img src="./assets/oimage.png" alt="green drippy image of the letter O">';
+        } else if (newGame.gameBoard[i] === null) {
+            event.target.innerHTML = '';
         }
     }
 }

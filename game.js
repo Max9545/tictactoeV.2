@@ -119,5 +119,8 @@ class Game {
         this.playerOne.turn = true;
         this.playerTwo.turn = false;
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+        for (var i = 0; i < allSquares.length; i++) {
+            allSquares[i].innerHTML = '';
+        }
     }
 }
