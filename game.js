@@ -4,11 +4,16 @@ class Game {
         this.playerTwo = new Player('Player Two', 'O', false);
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
     }
-    playTurn(player, tilePlayed) {
-        if (player.turn === true && tilePlayed < 9 && this.gameBoard[tilePlayed] === '') {
-            this.gameBoard.splice(tilePlayed, 1, player.token);
+    playTurn(tilePlayed) {
+        if (this.playerOne.turn === true && tilePlayed < 9 && this.gameBoard[tilePlayed] === '') {
+            this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
-            this.checkFoWin(player);
+            this.checkFoWin(this.playerOne);
+        }
+        if (this.playerTwo.turn === true && tilePlayed < 9 && this.gameBoard[tilePlayed] === '') {
+            this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
+            this.switchTurns();
+            this.checkFoWin(this.playerTwo);
         }
     }
     switchTurns() {
