@@ -19,5 +19,6 @@ poundSign.addEventListener('click', takeTurnForPlayer);
 
 function takeTurnForPlayer(event) {
     console.log(event.target.id);
+    console.log(newGame);
     newGame.playTurn(event.target.id);
 }
