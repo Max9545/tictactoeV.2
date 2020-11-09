@@ -8,14 +8,14 @@ class Game {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
-            var isItOver = this.checkFoWin(this.playerOne);
-            return [this.playerOne.token, isItOver];
+            this.checkFoWin(this.playerOne);
+            return this.playerOne.token;
         }
         if (this.playerTwo.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
             this.switchTurns();
-            var isItOver = this.checkFoWin(this.playerTwo);
-            return [this.playerTwo.token, isItOver];
+            this.checkFoWin(this.playerTwo);
+            return this.playerTwo.token;
         }
     }
     switchTurns() {
@@ -108,18 +108,18 @@ class Game {
         }
     }
     checkTopRightDiagonal() {
-        if (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[2] === this.gameBoard[6] && this.gameBoard[6] !== '') {
-            return true;
-        } else {
-            return false;
+            if (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[2] === this.gameBoard[6] && this.gameBoard[6] !== '') {
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-    resetGame() {
-        this.playerOne.turn = true;
-        this.playerTwo.turn = false;
-        this.gameBoard = ['', '', '', '', '', '', '', '', ''];
-        for (var i = 0; i < allSquares.length; i++) {
-            allSquares[i].innerHTML = '';
-        }
-    }
+        // resetGame() {
+        //     this.playerOne.turn = true;
+        //     this.playerTwo.turn = false;
+        //     this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+        //     for (var i = 0; i < allSquares.length; i++) {
+        //         allSquares[i].innerHTML = '';
+        //     }
+        // }
 }

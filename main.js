@@ -27,7 +27,7 @@ function takeTurnForPlayer(event) {
 
     }
     displayWinsCounts();
-    upDateTurnStatus();
+    upDateTurnStatus(returnToken);
 };
 
 function displayWinsCounts() {
@@ -35,10 +35,10 @@ function displayWinsCounts() {
     playerTwoWins.innerText = `${newGame.playerTwo.winCount} Wins`;
 };
 
-function upDateTurnStatus() {
+function upDateTurnStatus(symbol) {
     if (symbol === 'X') {
-        playTurn.innerText = 'Time for O to go!'
+        turnDisplay.innerText = 'Time for O to go!'
     } else {
-        playTurn.innerText = 'Time for X to go!'
+        turnDisplay.innerText = 'Time for X to go!'
     }
 }
