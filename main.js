@@ -19,9 +19,15 @@ poundSign.addEventListener('click', takeTurnForPlayer);
 
 function takeTurnForPlayer(event) {
     var returnToken = newGame.playTurn(event.target.id);
-    displayOctothorpeStatus(returnToken);
+    if (returnToken === 'X') {
+        event.target.innerHTML = '<img src="./assets/ximage.png" alt="green drippy image of the letter X">';
+
+    } else if (returnToken === 'O') {
+        event.target.innerHTML = '<img src="./assets/oimage.png" alt="green drippy image of the letter O">';
+
+    }
     displayWinsCounts();
-    upDateTurnStatus(returnToken[0]);
+    upDateTurnStatus();
 };
 
 function displayWinsCounts() {
@@ -29,23 +35,10 @@ function displayWinsCounts() {
     playerTwoWins.innerText = `${newGame.playerTwo.winCount} Wins`;
 };
 
-function upDateTurnStatus(symbolToCheck) {
-    if (symbolToCheck === 'X') {
-        turnDisplay.innerText = 'Time for O to go!';
+function upDateTurnStatus() {
+    if (symbol === 'X') {
+        playTurn.innerText = 'Time for O to go!'
     } else {
-        turnDisplay.innerText = 'Time for X to go!';
-    }
-}
-
-function displayOctothorpeStatus(symbolToLookFor) {
-    for (let i = 0; i < newGame.gameBoard.length; i++) {
-        if (newGame.gameBoard[i] === 'X') {
-            event.target.innerHTML = '<img src="./assets/ximage.png" alt="green drippy image of the letter X">';
-
-        } else if (newGame.gameBoard[i] === 'O') {
-            event.target.innerHTML = '<img src="./assets/oimage.png" alt="green drippy image of the letter O">';
-        } else if (newGame.gameBoard[i] === null) {
-            event.target.innerHTML = '';
-        }
+        playTurn.innerText = 'Time for X to go!'
     }
 }

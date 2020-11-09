@@ -24,9 +24,8 @@ class Game {
     }
     checkFoWin(player) {
         if (this.checkRows() || this.checkColumns() || this.checkDiagonals()) {
-            console.log(this.gameBoard[0], this.gameBoard[1], this.gameBoard[2]);
             player.winCount++;
-            this.resetGame();
+            // this.resetGame();
 
         }
     }
