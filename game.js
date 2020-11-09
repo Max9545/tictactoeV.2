@@ -8,14 +8,14 @@ class Game {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
-            this.checkFoWin(this.playerOne);
-            return this.playerOne.token;
+            var isItOver = this.checkFoWin(this.playerOne);
+            return [this.playerOne.token, isItOver];
         }
         if (this.playerTwo.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
             this.switchTurns();
-            this.checkFoWin(this.playerTwo);
-            return this.playerTwo.token;
+            var isItOver = this.checkFoWin(this.playerTwo);
+            return [this.playerTwo.token, isItOver];
         }
     }
     switchTurns() {
@@ -26,6 +26,8 @@ class Game {
         if (this.checkRows() || this.checkColumns() || this.checkDiagonals()) {
             console.log(this.gameBoard[0], this.gameBoard[1], this.gameBoard[2]);
             player.winCount++;
+            this.resetGame();
+
         }
     }
     checkRows() {
@@ -112,5 +114,10 @@ class Game {
         } else {
             return false;
         }
+    }
+    resetGame() {
+        this.playerOne.turn = true;
+        this.playerTwo.turn = false;
+        this.gameBoard = ['', '', '', '', '', '', '', '', ''];
     }
 }
