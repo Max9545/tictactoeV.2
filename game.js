@@ -9,11 +9,13 @@ class Game {
             this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
             this.checkFoWin(this.playerOne);
+            return this.playerOne.token;
         }
         if (this.playerTwo.turn === true && tilePlayed < 9 && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
             this.switchTurns();
             this.checkFoWin(this.playerTwo);
+            return this.playerTwo.token;
         }
     }
     switchTurns() {

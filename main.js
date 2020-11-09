@@ -11,14 +11,18 @@ var playerOneWins = document.querySelector('.x-wins')
 var playerTwoWins = document.querySelector('.o-wins')
 var turnDisplay = document.querySelector('.turn-display');
 var poundSign = document.querySelector('.pound-sign');
-var allSquares = document.querySelectorAll('.play-square');
+var allSquares = document.getElementsByClassName('play-square');
 
 var newGame = new Game();
 
 poundSign.addEventListener('click', takeTurnForPlayer);
 
 function takeTurnForPlayer(event) {
-    console.log(event.target.id);
+    var returnToken = newGame.playTurn(event.target.id);
+    if (returnToken === 'X') {
+        event.target.innerHTML = '<img src="./assets/ximage.png" alt="green drippy image of the letter X">';
+    } else if (returnToken === 'O') {
+        event.target.innerHTML = '<img src="./assets/oimage.png" alt="green drippy image of the letter O">';
+    }
     console.log(newGame);
-    newGame.playTurn(event.target.id);
 }
