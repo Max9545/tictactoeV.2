@@ -35,10 +35,10 @@ function displayWinsCounts() {
 };
 
 function upDateTurnStatusDisplay(symbol) {
-    if (symbol === 'X') {
-        turnDisplay.innerText = 'Time for O to go!'
-    } else {
+    if (newGame.playerOne.turn) {
         turnDisplay.innerText = 'Time for X to go!'
+    } else {
+        turnDisplay.innerText = 'Time for O to go!'
     }
 }
 

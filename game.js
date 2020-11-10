@@ -4,6 +4,7 @@ class Game {
         this.playerTwo = new Player('Player Two', 'O', false);
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
         this.isItOver = false;
+        this.turn = 0;
     }
     playTurn(tilePlayed) {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
@@ -33,7 +34,6 @@ class Game {
     checkRows() {
         if (this.checkRowOne() || this.checkRowTwo() || this.checkRowThree()) {
             return true;
-
         } else {
             return false;
         };
