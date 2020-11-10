@@ -24,7 +24,8 @@ function takeTurnForPlayer(event) {
     var returnToken = newGame.playTurn(event.target.id);
     displayWinsCounts();
     upDateTurnStatusDisplay(returnToken);
-    upDateOctoThorpe();
+    resetOrUpdateGameBoard()
+        // upDateOctoThorpe();
 };
 
 function displayWinsCounts() {
@@ -46,14 +47,23 @@ function upDateOctoThorpe() {
     console.log(newGame.gameBoard);
     for (var i = 0; i < newGame.gameBoard.length; i++) {
         if (newGame.gameBoard[i] !== '') {
-            document.getElementById(`${i}`).innerHTML = `<img src="./assets/${newGame.gameBoard[i]}image.png" id="X" alt="green drippy image of the letter ${newGame.gameBoard[i]}">`;
+            document.getElementById(`${i}`).innerHTML = `<img src="./assets/${newGame.gameBoard[i]}image.png" alt="green drippy image of the letter ${newGame.gameBoard[i]}">`;
+        } else {
+            document.getElementById(`${i}`).innerHTML = '';
         }
 
     }
 }
 
 
-function resetGameBoard() {
+function resetOrUpdateGameBoard() {
+    if (newGame.isItOver === true) {
+        window.setTimeout(startOver, 3000)
+    }
+    upDateOctoThorpe();
+}
+
+function startOver() {
     newGame.resetGame();
     upDateOctoThorpe();
 }

@@ -28,7 +28,6 @@ class Game {
             player.winCount++;
             player.saveWinsToStorage();
             this.isItOver = true;
-            this.resetGame();
         }
     }
     checkRows() {
@@ -119,6 +118,7 @@ class Game {
     resetGame() {
         this.playerOne.turn = true;
         this.playerTwo.turn = false;
+        this.isItOver = false;
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
     }
 }
