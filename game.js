@@ -3,6 +3,7 @@ class Game {
         this.playerOne = new Player('Player One', 'X', true);
         this.playerTwo = new Player('Player Two', 'O', false);
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+        this.isItOver = false;
     }
     playTurn(tilePlayed) {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
@@ -26,8 +27,8 @@ class Game {
         if (this.checkRows() || this.checkColumns() || this.checkDiagonals()) {
             player.winCount++;
             player.saveWinsToStorage();
-            // this.resetGame();
-
+            this.isItOver = true;
+            this.resetGame();
         }
     }
     checkRows() {
@@ -109,18 +110,15 @@ class Game {
         }
     }
     checkTopRightDiagonal() {
-            if (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[2] === this.gameBoard[6] && this.gameBoard[6] !== '') {
-                return true;
-            } else {
-                return false;
-            }
+        if (this.gameBoard[2] === this.gameBoard[4] && this.gameBoard[2] === this.gameBoard[6] && this.gameBoard[6] !== '') {
+            return true;
+        } else {
+            return false;
         }
-        // resetGame() {
-        //     this.playerOne.turn = true;
-        //     this.playerTwo.turn = false;
-        //     this.gameBoard = ['', '', '', '', '', '', '', '', ''];
-        //     for (var i = 0; i < allSquares.length; i++) {
-        //         allSquares[i].innerHTML = '';
-        //     }
-        // }
+    }
+    resetGame() {
+        this.playerOne.turn = true;
+        this.playerTwo.turn = false;
+        this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+    }
 }
