@@ -24,8 +24,7 @@ function takeTurnForPlayer(event) {
     var returnToken = newGame.playTurn(event.target.id);
     displayWinsCounts();
     upDateTurnStatusDisplay(returnToken);
-    resetOrUpdateGameBoard()
-        // upDateOctoThorpe();
+    resetOrUpdateGameBoard(returnToken)
 };
 
 function displayWinsCounts() {
@@ -56,8 +55,9 @@ function upDateOctoThorpe() {
 }
 
 
-function resetOrUpdateGameBoard() {
+function resetOrUpdateGameBoard(returnToken) {
     if (newGame.isItOver === true) {
+        turnDisplay.innerText = `${returnToken} Wins!!!`;
         window.setTimeout(startOver, 3000)
     }
     upDateOctoThorpe();
@@ -65,5 +65,6 @@ function resetOrUpdateGameBoard() {
 
 function startOver() {
     newGame.resetGame();
+    turnDisplay.innerText = "It's X's Turn First";
     upDateOctoThorpe();
 }
