@@ -5,18 +5,20 @@ class Game {
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
         this.isItOver = false;
         this.turn = 0;
+        this.winner
     }
     playTurn(tilePlayed) {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
             this.checkFoWin(this.playerOne);
+            this.checkForDraw();
             return this.playerOne.token;
-        }
-        if (this.playerTwo.turn === true && this.gameBoard[tilePlayed] === '') {
+        } else if (this.playerTwo.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
             this.switchTurns();
             this.checkFoWin(this.playerTwo);
+            this.checkForDraw();
             return this.playerTwo.token;
         }
     }
@@ -29,6 +31,7 @@ class Game {
             player.winCount++;
             player.saveWinsToStorage();
             this.isItOver = true;
+            this.winner = player;
         }
     }
     checkRows() {
@@ -120,5 +123,12 @@ class Game {
         this.playerTwo.turn = false;
         this.isItOver = false;
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+    }
+    checkForDraw() {
+        if (!this.gameBoard.includes('')) {
+            this.isItOver = true;
+            this.winner = 'no one';
+            console.log('check works');
+        }
     }
 }
