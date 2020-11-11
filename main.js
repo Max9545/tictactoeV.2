@@ -1,23 +1,12 @@
-var topLeft = document.querySelector('#top-left');
-var middleLeft = document.querySelector('#middle-left');
-var bottomLeft = document.querySelector('#bottom-left');
-var topRight = document.querySelector('#top-right');
-var middleRight = document.querySelector('#middle-right');
-var bottomRight = document.querySelector('#bottom-right');
-var topMiddle = document.querySelector('#top-middle');
-var middleMiddle = document.querySelector('#middle-middle');
-var bottomMiddle = document.querySelector('#bottom-middle');
-var playerOneWins = document.querySelector('.x-wins')
-var playerTwoWins = document.querySelector('.o-wins')
+// var playerOneWins = document.querySelector('.x-wins')
+// var playerTwoWins = document.querySelector('.o-wins')
 var turnDisplay = document.querySelector('.turn-display');
 var poundSign = document.querySelector('.pound-sign');
-var allSquares = document.getElementsByClassName('play-square');
-
 
 var newGame = new Game();
 
 poundSign.addEventListener('click', takeTurnForPlayer);
-// window.setTimeout(resetGameBoard, 3000);
+
 window.addEventListener('load', displayWinsCounts())
 
 function takeTurnForPlayer(event) {
@@ -25,7 +14,6 @@ function takeTurnForPlayer(event) {
         return;
     }
     newGame.playTurn(event.target.id);
-    // event.target.disabled = true;
     displayWinsCounts();
     upDateTurnStatusDisplay();
     resetOrUpdateGameBoard()
@@ -34,8 +22,8 @@ function takeTurnForPlayer(event) {
 function displayWinsCounts() {
     var oneWinCount = newGame.playerOne.retrieveWinsFromStorage();
     var twoWinCount = newGame.playerTwo.retrieveWinsFromStorage();
-    playerOneWins.innerText = oneWinCount === null ? '0 Wins' : `${oneWinCount} Wins`;
-    playerTwoWins.innerText = twoWinCount === null ? '0 Wins' : `${twoWinCount} Wins`;
+    document.querySelector('.x-wins').innerText = oneWinCount === null ? '0 Wins' : `${oneWinCount} Wins`;
+    document.querySelector('.o-wins').innerText = twoWinCount === null ? '0 Wins' : `${twoWinCount} Wins`;
 };
 
 function upDateTurnStatusDisplay() {
@@ -62,7 +50,6 @@ function upDateOctoThorpe() {
 function resetOrUpdateGameBoard() {
     if (newGame.isItOver === true && newGame.winner === 'no one') {
         turnDisplay.innerText = 'Big Ole Tie';
-
         window.setTimeout(startOver, 2000);
     } else if (newGame.isItOver === true) {
         turnDisplay.innerText = `${newGame.winner.token} Wins!!`;
@@ -77,3 +64,14 @@ function startOver() {
     turnDisplay.innerText = "It's X's Turn First";
     upDateOctoThorpe();
 }
+
+// function resetOrUpdateGameBoard() {
+//     if (newGame.isItOver === true && newGame.winner !== '') {
+//         turnDisplay.innerText = `${newGame.winner.token} Wins!!`;
+//         window.setTimeout(startOver, 2000);
+//     } else if (newGame.isItOver === true && newGame.winner === 'no one') {
+//         turnDisplay.innerText = 'Big Ole Tie';
+//         window.setTimeout(startOver, 2000);
+//     }
+//     upDateOctoThorpe();
+// }

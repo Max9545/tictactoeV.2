@@ -18,21 +18,17 @@ body {
     width: 25%;
     color: rgb(255, 136, 0);
     padding-top: 5%;
+    min-width: auto;
 }
 
 .game-table {
     background: linear-gradient(to bottom, rgb(160, 97, 163), rgb(0, 234, 255));
     width: 50%;
+    min-width: 500px;
     display: flex;
     align-items: center;
     color: rgb(59, 6, 151);
     flex-direction: column;
-}
-
-.play-square {
-    border: 3px solid black;
-    width: 9em;
-    height: 9em;
 }
 
 .pound-sign {
@@ -40,6 +36,9 @@ body {
 }
 
 .play-square {
+    border: 3px solid black;
+    width: 9em;
+    height: 9em;
     display: flex;
     justify-content: center;
     align-items: center;

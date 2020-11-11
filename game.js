@@ -27,6 +27,7 @@ class Game {
         this.playerOne.turn = !this.playerOne.turn;
         this.playerTwo.turn = !this.playerTwo.turn;
     }
+
     checkFoWin(player) {
         if (this.checkRows() || this.checkColumns() || this.checkDiagonals()) {
             player.winCount++;
@@ -71,7 +72,7 @@ class Game {
 
         } else {
             return false;
-        };
+        }
     }
     checkColumnOne() {
         if (this.gameBoard[0] === this.gameBoard[3] && this.gameBoard[0] === this.gameBoard[6] && this.gameBoard[6] !== '') {
@@ -103,7 +104,7 @@ class Game {
 
         } else {
             return false;
-        };
+        }
     }
     checkTopLeftDiagonal() {
         if (this.gameBoard[0] === this.gameBoard[4] && this.gameBoard[0] === this.gameBoard[8] && this.gameBoard[8] !== '') {
@@ -126,10 +127,9 @@ class Game {
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
     }
     checkForDraw() {
-        if (!this.gameBoard.includes('')) {
+        if (!this.gameBoard.includes('') && this.isItOver === false) {
             this.isItOver = true;
             this.winner = 'no one';
-            console.log('check works');
         }
     }
 }
