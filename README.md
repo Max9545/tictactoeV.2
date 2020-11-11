@@ -30,6 +30,7 @@ This is a childhood classic in which one player marks "X" and the second player 
 
 ## Contributing
 Max Bregman
+
 Steve Kinney (mentor, talked about some ideas)
 
 
