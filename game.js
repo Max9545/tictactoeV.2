@@ -5,6 +5,7 @@ class Game {
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
         this.isItOver = false;
         this.turn = 0;
+        this.winningCombos = []
         this.winner
     }
     playTurn(tilePlayed) {

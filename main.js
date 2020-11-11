@@ -12,7 +12,7 @@ var playerTwoWins = document.querySelector('.o-wins')
 var turnDisplay = document.querySelector('.turn-display');
 var poundSign = document.querySelector('.pound-sign');
 var allSquares = document.getElementsByClassName('play-square');
-var squaresForJava = document.get
+
 
 var newGame = new Game();
 
@@ -21,7 +21,10 @@ poundSign.addEventListener('click', takeTurnForPlayer);
 window.addEventListener('load', displayWinsCounts())
 
 function takeTurnForPlayer(event) {
-    var returnToken = newGame.playTurn(event.target.id);
+    if (newGame.isItOver) {
+        return;
+    }
+    newGame.playTurn(event.target.id);
     // event.target.disabled = true;
     displayWinsCounts();
     upDateTurnStatusDisplay();
@@ -59,10 +62,12 @@ function upDateOctoThorpe() {
 function resetOrUpdateGameBoard() {
     if (newGame.isItOver === true && newGame.winner === 'no one') {
         turnDisplay.innerText = 'Big Ole Tie';
+
         window.setTimeout(startOver, 2000);
     } else if (newGame.isItOver === true) {
         turnDisplay.innerText = `${newGame.winner.token} Wins!!`;
         window.setTimeout(startOver, 2000);
+
     }
     upDateOctoThorpe();
 }
