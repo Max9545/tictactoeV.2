@@ -6,6 +6,7 @@ This is a childhood classic in which one player marks "X" and the second player 
 
 * A text editing program
 * Access to GitHub Repository [TicTacToe](https://github.com/Max9545/tictactoeV.2)
+* My [GitHub](https://github.com/Max9545)
 * Perhaps a friend to play with
 
 
