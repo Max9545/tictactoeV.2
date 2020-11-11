@@ -38,7 +38,6 @@ function upDateOctoThorpe() {
         } else {
             document.getElementById(`${i}`).innerHTML = '';
         }
-
     }
 }
 

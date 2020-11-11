@@ -5,7 +5,7 @@ This is a childhood classic in which one player marks "X" and the second player 
 ## Installation
 
 * A text editing program
-* Access to GitHub Repository [TicTacToer](https://github.com/Max9545/tictactoeV.2)
+* Access to GitHub Repository [TicTacToe](https://github.com/Max9545/tictactoeV.2)
 * Perhaps a friend to play with
 
 
@@ -17,9 +17,9 @@ This is a childhood classic in which one player marks "X" and the second player 
 ## Usage
 * X is the first player to go
 * Click a box to fill it with your player token
-* The second player has a O for a token
+* The second player has an O for a token
 * If either player gets three in a row, column, or diagonally then that player has a win added to their win count 
-* The game will automatically restart after a win or a draw 
+* The game will automatically restart two seconds after a win or a draw 
 * Win counts are updated as games are played and persist if the page is reloaded
 * Whose turn it is is displayed at the top of the page
 
