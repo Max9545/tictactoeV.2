@@ -5,22 +5,21 @@ class Game {
         this.gameBoard = ['', '', '', '', '', '', '', '', ''];
         this.isItOver = false;
         this.turn = 0;
-        this.winningCombos = []
+        this.winningCombos = [];
         this.winner
     }
+
     playTurn(tilePlayed) {
         if (this.playerOne.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerOne.token);
             this.switchTurns();
             this.checkFoWin(this.playerOne);
             this.checkForDraw();
-            return this.playerOne.token;
         } else if (this.playerTwo.turn === true && this.gameBoard[tilePlayed] === '') {
             this.gameBoard.splice(tilePlayed, 1, this.playerTwo.token);
             this.switchTurns();
             this.checkFoWin(this.playerTwo);
             this.checkForDraw();
-            return this.playerTwo.token;
         }
     }
     resetGame() {

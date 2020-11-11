@@ -1,13 +1,10 @@
-// var playerOneWins = document.querySelector('.x-wins')
-// var playerTwoWins = document.querySelector('.o-wins')
 var turnDisplay = document.querySelector('.turn-display');
-var poundSign = document.querySelector('.pound-sign');
 
 var newGame = new Game();
 
-poundSign.addEventListener('click', takeTurnForPlayer);
+document.querySelector('.pound-sign').addEventListener('click', takeTurnForPlayer);
 
-window.addEventListener('load', displayWinsCounts())
+window.addEventListener('load', displayWinsCounts());
 
 function takeTurnForPlayer(event) {
     if (newGame.isItOver) {
@@ -35,7 +32,6 @@ function upDateTurnStatusDisplay() {
 }
 
 function upDateOctoThorpe() {
-    console.log(newGame.gameBoard);
     for (var i = 0; i < newGame.gameBoard.length; i++) {
         if (newGame.gameBoard[i] !== '') {
             document.getElementById(`${i}`).innerHTML = `<img src="./assets/${newGame.gameBoard[i]}image.png" alt="green drippy image of the letter ${newGame.gameBoard[i]}">`;

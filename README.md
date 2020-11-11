@@ -1,6 +1,6 @@
 # TicTacToe
 
-This is a childhood classic in which one player marks "X" and the second player "O" in order to try to get three marks in a row in order to win.
+This is a childhood classic in which one player marks "X" and the second player "O" in order to try to get three marks in a row for a win. Wins are saved and displayed across games and page loads/reloads.
 
 ## Installation
 
