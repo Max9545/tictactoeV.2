@@ -64,14 +64,3 @@ function startOver() {
     turnDisplay.innerText = "It's X's Turn First";
     upDateOctoThorpe();
 }
-
-// function resetOrUpdateGameBoard() {
-//     if (newGame.isItOver === true && newGame.winner !== '') {
-//         turnDisplay.innerText = `${newGame.winner.token} Wins!!`;
-//         window.setTimeout(startOver, 2000);
-//     } else if (newGame.isItOver === true && newGame.winner === 'no one') {
-//         turnDisplay.innerText = 'Big Ole Tie';
-//         window.setTimeout(startOver, 2000);
-//     }
-//     upDateOctoThorpe();
-// }

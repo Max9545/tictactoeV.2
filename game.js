@@ -23,6 +23,18 @@ class Game {
             return this.playerTwo.token;
         }
     }
+    resetGame() {
+        this.playerOne.turn = true;
+        this.playerTwo.turn = false;
+        this.isItOver = false;
+        this.gameBoard = ['', '', '', '', '', '', '', '', ''];
+    }
+    checkForDraw() {
+        if (!this.gameBoard.includes('') && this.isItOver === false) {
+            this.isItOver = true;
+            this.winner = 'no one';
+        }
+    }
     switchTurns() {
         this.playerOne.turn = !this.playerOne.turn;
         this.playerTwo.turn = !this.playerTwo.turn;
@@ -120,16 +132,5 @@ class Game {
             return false;
         }
     }
-    resetGame() {
-        this.playerOne.turn = true;
-        this.playerTwo.turn = false;
-        this.isItOver = false;
-        this.gameBoard = ['', '', '', '', '', '', '', '', ''];
-    }
-    checkForDraw() {
-        if (!this.gameBoard.includes('') && this.isItOver === false) {
-            this.isItOver = true;
-            this.winner = 'no one';
-        }
-    }
+
 }
